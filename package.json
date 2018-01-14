@@ -1,0 +1,23 @@
+{
+  "name": "spotify-wrapper",
+  "version": "1.0.0",
+  "description": "A Spotify wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/givigier/spotify-wrapper.git"
+  },
+  "keywords": [
+    "wrapper",
+    "spotify"
+  ],
+  "author": "Gabriel Givigier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/givigier/spotify-wrapper/issues"
+  },
+  "homepage": "https://github.com/givigier/spotify-wrapper#readme"
+}
