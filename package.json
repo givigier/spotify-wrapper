@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/**/*.js tests/**/*.spec.js",
-    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register"
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:watch": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch"
   },
   "repository": {
     "type": "git",
