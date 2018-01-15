@@ -9,3 +9,6 @@ lib
 
 # Optional eslint cache
 .eslintcache
+
+# Files of coverage reporters
+.nyc_output
