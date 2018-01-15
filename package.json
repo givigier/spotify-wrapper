@@ -4,6 +4,7 @@
   "description": "A Spotify wrapper",
   "main": "lib/index.js",
   "scripts": {
+    "lint": "./node_modules/.bin/eslint src/**/*.js tests/**/*.spec.js",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register"
   },
   "repository": {
