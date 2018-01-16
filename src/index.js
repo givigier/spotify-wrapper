@@ -1,10 +1,8 @@
-const search = (term, type) =>
-  fetch(`https://api.spotify.com/v1/search?q=${term}&type=${type}`)
+export const search = (query, type) =>
+  fetch(`https://api.spotify.com/v1/search?q=${query}&type=${type}`)
     .then(data => data.json());
 
-const searchAlbums = () => '';
-const searchArtists = () => '';
-const searchTracks = () => '';
-const searchPlaylists = () => '';
-
-export { search, searchAlbums, searchArtists, searchTracks, searchPlaylists };
+export const searchAlbums = query => search(query, 'album');
+export const searchArtists = query => search(query, 'artist');
+export const searchTracks = query => search(query, 'track');
+export const searchPlaylists = query => search(query, 'playlist');
