@@ -40,7 +40,11 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "mocha": "^4.1.0",
+    "node-fetch": "^1.7.3",
     "nyc": "^11.4.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "sinon": "^4.1.5",
+    "sinon-chai": "^2.14.0",
+    "sinon-stub-promise": "^4.0.0"
   }
 }
