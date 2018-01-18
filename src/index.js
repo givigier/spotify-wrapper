@@ -1,18 +1,24 @@
-require('dotenv').config();
+import {
+  search,
+  searchAlbums,
+  searchArtists,
+  searchTracks,
+  searchPlaylists,
+} from './search';
 
-export const search = (query, type) => {
-  const apiUrl = `https://api.spotify.com/v1/search?q=${query}&type=${type}`;
-  const header = {
-    headers: {
-      Authorization: `Bearer ${process.env.SPOTIFY_TOKEN}`,
-    },
-  };
+import {
+  getAlbum,
+  getAlbums,
+  getAlbumTracks,
+} from './album';
 
-  return fetch(apiUrl, header)
-    .then(data => data.json());
+module.exports = {
+  search,
+  searchAlbums,
+  searchArtists,
+  searchTracks,
+  searchPlaylists,
+  getAlbum,
+  getAlbums,
+  getAlbumTracks,
 };
-
-export const searchAlbums = query => search(query, 'album');
-export const searchArtists = query => search(query, 'artist');
-export const searchTracks = query => search(query, 'track');
-export const searchPlaylists = query => search(query, 'playlist');
