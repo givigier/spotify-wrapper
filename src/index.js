@@ -1,6 +1,16 @@
-export const search = (query, type) =>
-  fetch(`https://api.spotify.com/v1/search?q=${query}&type=${type}`)
+require('dotenv').config();
+
+export const search = (query, type) => {
+  const apiUrl = `https://api.spotify.com/v1/search?q=${query}&type=${type}`;
+  const header = {
+    headers: {
+      Authorization: `Bearer ${process.env.SPOTIFY_TOKEN}`,
+    },
+  };
+
+  return fetch(apiUrl, header)
     .then(data => data.json());
+};
 
 export const searchAlbums = query => search(query, 'album');
 export const searchArtists = query => search(query, 'artist');

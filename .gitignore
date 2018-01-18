@@ -15,3 +15,6 @@ npm-debug.log
 
 # Files of coverage reporters
 .nyc_output
+
+# Env vars
+.env
