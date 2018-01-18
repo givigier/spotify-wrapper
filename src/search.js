@@ -1,8 +1,6 @@
 import { API_URL, HEADER } from './config';
 import toJSON from './utils';
 
-require('dotenv').config();
-
 export const search = (query, type) => {
   const apiUrl = `${API_URL}/search?q=${query}&type=${type}`;
 

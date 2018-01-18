@@ -12,6 +12,8 @@ import {
   getAlbumTracks,
 } from './album';
 
+require('dotenv').config();
+
 module.exports = {
   search,
   searchAlbums,
