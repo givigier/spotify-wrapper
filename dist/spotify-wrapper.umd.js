@@ -84,10 +84,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var API_URL = exports.API_URL = 'https://api.spotify.com/v1';
+var spotifyToken = 'BQBHzOi4U5xQWFbEXl0-fs1vODIhMvbTfsfbOwVeKY6V2dYfl0UfRflNplfOwNMehgbi2yyJxldbEhKDOPTh--mUe3p4Vn4X77NI8lYFDxScQjIYb-M4AzCl-ncLPEBdPLXRIulqIZjyjTE';
 
 var HEADER = exports.HEADER = {
   headers: {
-    Authorization: 'Bearer ' + process.env.SPOTIFY_TOKEN
+    Authorization: 'Bearer ' + spotifyToken
   }
 };
 
@@ -117,8 +118,6 @@ exports.default = toJSON;
 var _search = __webpack_require__(3);
 
 var _album = __webpack_require__(4);
-
-__webpack_require__(5).config();
 
 module.exports = {
   search: _search.search,
@@ -209,93 +208,6 @@ var getAlbumTracks = exports.getAlbumTracks = function getAlbumTracks(id) {
     return (0, _utils2.default)(data);
   });
 };
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var fs = __webpack_require__(6)
-
-/*
- * Parses a string or buffer into an object
- * @param {String|Buffer} src - source to be parsed
- * @returns {Object}
-*/
-function parse (src) {
-  var obj = {}
-
-  // convert Buffers before splitting into lines and processing
-  src.toString().split('\n').forEach(function (line) {
-    // matching "KEY' and 'VAL' in 'KEY=VAL'
-    var keyValueArr = line.match(/^\s*([\w\.\-]+)\s*=\s*(.*)?\s*$/)
-    // matched?
-    if (keyValueArr != null) {
-      var key = keyValueArr[1]
-
-      // default undefined or missing values to empty string
-      var value = keyValueArr[2] ? keyValueArr[2] : ''
-
-      // expand newlines in quoted values
-      var len = value ? value.length : 0
-      if (len > 0 && value.charAt(0) === '"' && value.charAt(len - 1) === '"') {
-        value = value.replace(/\\n/gm, '\n')
-      }
-
-      // remove any surrounding quotes and extra spaces
-      value = value.replace(/(^['"]|['"]$)/g, '').trim()
-
-      obj[key] = value
-    }
-  })
-
-  return obj
-}
-
-/*
- * Main entry point into dotenv. Allows configuration before loading .env
- * @param {Object} options - valid options: path ('.env'), encoding ('utf8')
- * @returns {Boolean}
-*/
-function config (options) {
-  var path = '.env'
-  var encoding = 'utf8'
-
-  if (options) {
-    if (options.path) {
-      path = options.path
-    }
-    if (options.encoding) {
-      encoding = options.encoding
-    }
-  }
-
-  try {
-    // specifying an encoding returns a string instead of a buffer
-    var parsedObj = parse(fs.readFileSync(path, { encoding: encoding }))
-
-    Object.keys(parsedObj).forEach(function (key) {
-      process.env[key] = process.env[key] || parsedObj[key]
-    })
-
-    return { parsed: parsedObj }
-  } catch (e) {
-    return { error: e }
-  }
-}
-
-module.exports.config = config
-module.exports.load = config
-module.exports.parse = parse
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-module.exports = require("fs");
 
 /***/ })
 /******/ ]);

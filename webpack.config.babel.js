@@ -15,5 +15,4 @@ export default {
       { test: /\.js$/, loader: 'babel-loader', include },
     ],
   },
-  target: 'node',
 };
